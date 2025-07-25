@@ -3,7 +3,7 @@
 Plugin Name: WPProAtoZ Mobile Call Now & Map Buttons
 Plugin URI: https://wpproatoz.com
 Description: Adds a quick call button and map access to mobile phone for you users to be able to get quick instructions and or call you. Adds custom "Call Now" and/or Google Map "Directions" buttons for mobile visitors. Forked from davidsworld plugin
-Version: 1.5
+Version: 1.5.1
 Requires at least: 6.0
 Requires PHP: 8.0
 Tested up to: 6.8.1
@@ -41,31 +41,32 @@ add_action( 'init', function() {
 } );
 
 class rpb {
-	public $menu_id;
+    public $menu_id;
+    public $rpb_options; // Declare the property to avoid deprecation warning
 
-	/**
-	 * Plugin initialization
-	 *
-	 * @since 1.0
-	 */
-	public function __construct() {
+    /**
+     * Plugin initialization
+     *
+     * @since 1.0
+     */
+    public function __construct() {
 
-		// localization
-		load_plugin_textdomain( 'rpb' );
+        // localization
+        load_plugin_textdomain( 'rpb' );
 
-		// admin
-		add_action( 'admin_menu', array( $this, 'rpb_add_admin_menu' ));
-		add_action( 'admin_enqueue_scripts', array( $this, 'rpb_admin_scripts' ));
+        // admin
+        add_action( 'admin_menu', array( $this, 'rpb_add_admin_menu' ));
+        add_action( 'admin_enqueue_scripts', array( $this, 'rpb_admin_scripts' ));
 
-		// create needed initialization
-		add_action('admin_init', array( $this, 'rpb_register_options_settings') );
+        // create needed initialization
+        add_action('admin_init', array( $this, 'rpb_register_options_settings') );
 
-		// create custom footer
-		add_action('wp_footer', array( $this, 'rpb_add_buttons'), 10);
+        // create custom footer
+        add_action('wp_footer', array( $this, 'rpb_add_buttons'), 10);
 
-		// grab the options, use for entire object
-		$this->rpb_options = $this->rpb_options();
-	}
+        // grab the options, use for entire object
+        $this->rpb_options = $this->rpb_options();
+    }
 
 	/**
 	 * Add Menu Page

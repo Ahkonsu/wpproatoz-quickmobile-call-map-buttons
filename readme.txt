@@ -24,7 +24,7 @@
 Plugin Name: WPProAtoZ Mobile Call Now & Map Buttons
 Plugin URI: https://wpproatoz.com
 Description: Adds a quick call button and map access to mobile phone for you users to be able to get quick instructions and or call you. Adds custom "Call Now" and/or Google Map "Directions" buttons for mobile visitors. Forked from davidsworld plugin
-Version: 1.5
+Version: 1.5.1
 Requires at least: 6.0
 Requires PHP: 8.0
 Tested up to: 6.8.1
@@ -144,6 +144,9 @@ This is your Wordpress setup, you may copy/paste it out when needing help troubl
 * feature you'd like to see? 
 
 == Changelog ==
+= 1.5.1 =
+* July 25, 2025
+* updated code to be complatble with php 8+ fixed error for depreciated property
 
 = 1.5.0 =
 * Mar 5, 2018
